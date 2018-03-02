@@ -1,0 +1,251 @@
+body, .details {
+  background: #ccc;
+}
+
+.hide {
+    position: absolute;
+    display: block;
+    top: -9999em;
+    left: -9999em;
+}
+
+.clear { clear: both; }
+
+.half {
+    float: left;
+    width: 50%;
+}
+
+.header, .experiences, .details {
+    padding: 20px;    
+}
+
+.header {
+  background: #222;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: 130px;
+  
+  /* rgba is a different way of expressing color in
+     terms of its RGB components with Alpha (transparency) */
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+  
+  text-shadow: 1px 1px 0 #000;
+}
+
+.header .name {
+    float: left;
+    width: 500px;
+}
+
+.header .name img {
+    float: left;
+    position: relative;
+    top: 20px;
+    right: 20px;
+    margin-left: 15px;
+    width: 100px;
+    height: 100px;
+}
+
+.header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.header h2 {
+  font-family: "Georgia", Serif;      
+  font-weight: normal;
+  font-style: italic;
+  color: #666;
+}
+
+.header dl {
+    float: right;
+    margin: 0;
+}
+
+.experiences {
+  background: #eee;
+  margin-top: 170px;
+}
+
+.experiences h3 {
+    font-size: 30px;
+    line-height: 36px;
+    margin: 0 -20px 20px -20px;
+    padding: 0 20px 10px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.experiences h4 {
+    float: left;
+}
+
+.experiences h5,
+.experiences h6 {
+    float: right;
+}
+
+.experiences h6 {
+    clear: right;
+}
+
+.experiences ul {
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.skills h3, .education h3 {
+  font-family: Georgia, Serif;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.skills ul {
+    list-style-type: none;
+    margin: 0 0 10px 0;
+}
+
+.skills ul li {
+    float: left;
+    margin: 0 5px 5px 0;
+    font-size: 90%;
+    background: #b3b3b3;
+    padding: 4px;
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.skills h6 {
+    clear: left;
+}
+
+dl dt {
+  /*color: #555;*/
+}
+
+dl dd {
+    margin: 0 0 10px 0;
+}
+
+/*.education dl dd:first-of-type {
+  font-style: bold;
+  font-size: 16px;      
+}*/
+
+.education dl dd:not(:first-of-type) {
+  /*color: #666;*/
+  float: right;
+}    
+
+.education dl dt:not(:first-of-type) {
+  float: left;
+  clear: left;
+  width: 340px;
+  display: inline;
+}
+
+.education ul li {
+  color: #555;
+    
+}
+
+#slideshow img{
+  cursor: pointer;
+  margin: 10px;
+
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  o-transition: all .5s;
+    transition: all .5s;
+}
+
+#slideshow img:hover{
+  -webkit-box-shadow: 0 0 20px #ff5105; /* medio naranja */
+  -moz-box-shadow: 0 0 20px #ff5105;
+  -o-box-shadow: 0 0 20px #ff5105;
+  box-shadow: 0 0 20px #ff5105;
+
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+
+#previewSlideshow{ 
+  background: rgba(0,0,0,0.5); /* fondo negro semitransparente */
+  display: none; /* no mostrarla inicialmente */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#previewSlideshow #imagen{ /* va a contener la imagen en tamaño completo */
+  height: 350px;
+  margin: 100px auto; /* para bajarla y centrarla */
+  width: 300px;
+
+  -webkit-box-shadow: 0 0 50px #000; /* negro */
+  -moz-box-shadow: 0 0 50px #000;
+  -o-box-shadow: 0 0 50px #000;
+  box-shadow: 0 0 50px #000;
+}
+#previewSlideshow #descripcion{
+  background: rgba(0,0,0,0.7); /* negro semitransparente */
+  color: #fff; /* blanco */
+  padding: 5px;
+  position: relative; /* para poder manipularlo, sin tener que afectar toda la linea del documento */
+  margin: -35px auto; /* negativo--> para que suba */
+  text-align: center;
+  width: 90px;
+  z-index: 100; /* al ser relativo, queremos que esté sobre nuestra imagen */
+
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+#previewSlideshow #cerrar{ /* botón cerrar de la imagen completa */
+  background: red;
+  color: #fff; /* blanco */
+  cursor: pointer;
+  font-size:14px;
+  font-weight: bold;
+  margin: -395px 330px;
+  padding: 10px;
+  position: relative; /* para poder manipularlo sobre la imagen */
+  text-align: center;
+  width: 50px;
+
+
+  -webkit-transition: all .3s; /* se puede quitar, porque no hace nada */
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;  
+}
+#previewSlideshow #cerrar:hover{ /* efecto, cuando el cursor está sobre el botón de cerrar
+                                  de la imagen completa */
+  padding: 30px 10px 10px 10px;
+}
+
+a {
+  color: white;
+  background: black;
+  text-decoration: none;
+}
+
+a:hover{
+  color: white;
+  background: blue;
+}
